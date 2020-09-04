@@ -1,0 +1,118 @@
+<ion-header>
+    <ion-toolbar color='dark'>
+        <ion-buttons>
+            <ion-back-button slot="start"></ion-back-button>
+            <ion-title>Details</ion-title>
+            <ion-menu-button slot="end"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- <ion-item>
+        <ion-searchbar></ion-searchbar>
+    </ion-item> -->
+    <ion-item class='search' lines='none'>
+        <ion-chip>
+            <ion-label>#cheeselove</ion-label>
+        </ion-chip>
+        <ion-chip>
+            <ion-label>#kofluence</ion-label>
+        </ion-chip>
+        <ion-chip *ngFor='let search of searches;let i = index'>
+            <ion-label>#{{search}}</ion-label>
+            <ion-icon name="close-circle" (click)='cancel(search,i)'></ion-icon>
+        </ion-chip>
+    </ion-item>
+    <ion-item lines="none">
+        <h6 style="margin: 5px;">Hashtags:</h6>
+        <ion-chip *ngFor='let hash of hashtags;let j = index' (click)='toSearch(hash,j)'>
+            <ion-label>#{{hash}}</ion-label>
+        </ion-chip>
+    </ion-item>
+    <ion-item lines='none'>
+        <h6 style="margin: 5px;">Your Posts</h6>
+
+    </ion-item>
+    <!-- <ion-item lines='none'> -->
+    <div>
+        <ion-slides pager="false" [options]="slideOpts">
+            <ion-slide *ngFor='let yp of yourPosts'>
+                <ion-card>
+                    <img src="{{yp.image}}">
+                    <ion-text style="color:#ffffff;position: absolute;
+                    top: 0px;
+                    left: 8px;">
+                        <h5 style="margin: 5px; font-size:12px">
+                            <ion-icon name="time-outline"></ion-icon>
+                            {{yp.date | date:'dd MMM'}}
+                        </h5>
+                    </ion-text>
+                    <ion-text style="color:#ffffff;position: absolute;
+                    top: 3%;
+                    right: 8px;">
+                        <div style="height: 20px;
+                        width: 20px;
+                        background-color: yellow;
+                        border-radius: 50%;
+                        display: inline-block;
+                        padding: 4px;">
+                            <ion-icon name="{{yp.media}}" color='dark'></ion-icon>
+
+                        </div>
+                    </ion-text>
+                    <div class="cardcontent">
+                        <ion-icon name="heart"></ion-icon>
+                        {{converter(yp.likes)}}
+                        <ion-icon name="chatbox-ellipses"></ion-icon>
+                        {{converter(yp.comments)}}
+                    </div>
+                </ion-card>
+            </ion-slide>
+        </ion-slides>
+    </div>
+    <ion-item lines='none'>
+        <h6 style="margin: 5px;" slot="start">Similar Posts</h6>
+        <h6 slot="end">{{searchedposts.length}} Posts</h6>
+    </ion-item>
+    <!-- <ion-item lines='none'> -->
+    <ion-grid>
+        <ion-row>
+            <ion-col *ngFor='let yp of searchedposts' size="6">
+                <ion-card>
+                    <img src="{{yp.image}}">
+                    <ion-text style="color:#ffffff; opacity: 1;font-size: 16px;font-weight: 400;position: absolute;
+                top: 0px;
+                left: 8px;">
+                        <h5 style="margin: 5px; font-size:12px">
+                            <ion-icon name="time-outline"></ion-icon>
+                            {{yp.date | date:'dd MMM'}}
+                        </h5>
+                    </ion-text>
+                    <ion-text style="color:#ffffff;position: absolute;
+                top: 3%;
+                right: 8px;">
+                        <div style="height: 20px;
+                    width: 20px;
+                    background-color: yellow;
+                    border-radius: 50%;
+                    display: inline-block;
+                    padding: 4px;">
+                            <ion-icon name="{{yp.media}}" color='dark'></ion-icon>
+
+                        </div>
+                    </ion-text>
+                    <div class="cardcontent">
+                        <ion-icon name="heart"></ion-icon>
+                        {{converter(yp.likes)}}
+                        <ion-icon name="chatbox-ellipses"></ion-icon>
+                        {{converter(yp.comments)}}
+                    </div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!-- </ion-item>  -->
+
+</ion-content>

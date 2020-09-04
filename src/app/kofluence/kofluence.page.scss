@@ -1,0 +1,40 @@
+// ion-item 
+ion-searchbar {
+    --border-color: lightsalmon;
+    --border-radius: 50px;
+    --icon-color: red
+}
+
+.search {
+    border-radius: 50px;
+    border: 1px solid #fcdb7a;
+    margin-top: 25px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    // height: 35px;
+    ion-chip {
+        // height: 20px;
+        //     margin-bottom: 20px;
+        margin-top: auto;
+        margin-bottom: auto
+    }
+}
+
+ion-card {
+    img {
+        opacity: 0.8;
+        height: 156px;
+        width: 100%;
+    }
+    .cardcontent {
+        display: block;
+        padding: 6px;
+        background: #fef2cc;
+        color: black!important;
+    }
+}
+
+ion-chip {
+    --background: #fef2cc;
+}
